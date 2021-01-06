@@ -72,7 +72,12 @@ describe('Park', function() {
     assert.strictEqual(151, park.visitorsPerDay())
   });
 
-  it('should be able to calculate the total number of visitors per year');
+  it('should be able to calculate the total number of visitors per year', function(){
+    park.addDinosaur(dinosaur3);
+    park.addDinosaur(dinosaur4);
+    assert.strictEqual(55115,(365*park.visitorsPerDay()))
+
+  });
 
   it('should be able to calculate total revenue for one year');
 
