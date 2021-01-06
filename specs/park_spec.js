@@ -65,7 +65,12 @@ describe('Park', function() {
     assert.deepEqual([dinosaur, dinosaur4], park.sameSpecies('t-rex'))
   });
 
-  it('should be able to calculate the total number of visitors per day');
+  it('should be able to calculate the total number of visitors per day', function() {
+    park.addDinosaur(dinosaur3);
+    park.addDinosaur(dinosaur4);
+
+    assert.strictEqual(151, park.visitorsPerDay())
+  });
 
   it('should be able to calculate the total number of visitors per year');
 

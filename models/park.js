@@ -46,4 +46,13 @@ Park.prototype.sameSpecies = function(species) {
     return population
 }
 
+//Calculate the total number of visitors per day
+Park.prototype.visitorsPerDay = function (){
+    let visits = 0;
+    for (i=0; i< this.collectionOfDinosaurs.length; i++) {
+        visits =+ this.collectionOfDinosaurs[i].guestsAttractedPerDay
+    }
+    return visits
+}
+
 module.exports = Park;
