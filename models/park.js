@@ -13,13 +13,31 @@ Park.prototype.addDinosaur = function(dinosaur){
 //Remove a dinosaur from its collection of dinosaurs
 Park.prototype.removeDinosaur = function(dinosaur){
 
-
-    for (var i = 0; i < this.collectionOfDinosaurs.length; i++) {
+    for ( i = 0; i < this.collectionOfDinosaurs.length; i++) {
         if (this.collectionOfDinosaurs[i] === dinosaur){
             this.collectionOfDinosaurs.splice(i,1)
            
         }
     }
 }
+
+// Find the dinosaur that attracts the most visitors
+Park.prototype.mostVisitors = function() {
+    let views = 0;
+    let topDino;
+
+    for (i=0; i < this.collectionOfDinosaurs.length; i++) {
+        if (this.collectionOfDinosaurs[i].guestsAttractedPerDay > views) {
+            topDino = this.collectionOfDinosaurs[i];
+            views = topDino.guestsAttractedPerDay;
+        }
+    }
+    return topDino
+
+
+
+}
+
+
 
 module.exports = Park;
