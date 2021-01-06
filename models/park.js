@@ -33,11 +33,17 @@ Park.prototype.mostVisitors = function() {
         }
     }
     return topDino
-
-
-
 }
 
-
+//Find all dinosaurs of a particular species
+Park.prototype.sameSpecies = function(species) {
+    let population = [];
+    for (i=0; i < this.collectionOfDinosaurs.length; i++) {
+        if(this.collectionOfDinosaurs[i].species === species){
+            population.push(this.collectionOfDinosaurs[i])
+        }
+    }
+    return population
+}
 
 module.exports = Park;
