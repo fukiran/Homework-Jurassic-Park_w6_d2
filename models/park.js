@@ -15,7 +15,8 @@ Park.prototype.removeDinosaur = function(dinosaur){
 
     for ( i = 0; i < this.collectionOfDinosaurs.length; i++) {
         if (this.collectionOfDinosaurs[i] === dinosaur){
-            this.collectionOfDinosaurs.splice(i,1)
+            this.collectionOfDinosaurs.splice(i,1);
+            i--;
            
         }
     }
@@ -50,7 +51,7 @@ Park.prototype.sameSpecies = function(species) {
 Park.prototype.visitorsPerDay = function (){
     let visits = 0;
     for (i=0; i< this.collectionOfDinosaurs.length; i++) {
-        visits =+ this.collectionOfDinosaurs[i].guestsAttractedPerDay
+        visits += this.collectionOfDinosaurs[i].guestsAttractedPerDay
     }
     return visits
 }
@@ -63,6 +64,18 @@ Park.prototype.visitorsPerYear = function(){
 //Calculate the total revenue from ticket sales for one year
 Park.prototype.annualRevenue = function(){
     return this.visitorsPerYear() * this.ticketPrice
+}
+
+//Remove all dinosaurs of a particular species
+Park.prototype.removePopulation = function(species){
+    const newCollection = [];
+
+    for (i=0; i < this.collectionOfDinosaurs.length; i++) {
+        if (this.collectionOfDinosaurs[i].species !== species) {
+            newCollection.push(this.collectionOfDinosaurs[i]);
+        }
+    }
+    this.collectionOfDinosaurs = newCollection;
 }
 
 
